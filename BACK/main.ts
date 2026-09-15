@@ -3,6 +3,7 @@ import { Application, oakCors } from "./Dependencies/Dependencias.ts";
 import { TecnicoRouter } from "./Routes/TecnicoRouter.ts"
 
 import emailRoutes from "./Routes/emailRoutes.ts";
+import clienteRoutes from "./Routes/ClienteRouter.ts";
 
 const app = new Application();
 
@@ -10,8 +11,7 @@ app.use(oakCors({
     origin: "*"
 }));
 
-const routes = [TecnicoRouter];
-const routes = [emailRoutes];
+const routes = [emailRoutes, clienteRoutes];
 
 routes.forEach(router => {
     app.use(router.routes());
