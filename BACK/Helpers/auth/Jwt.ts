@@ -1,20 +1,20 @@
 import { create, getNumericDate, verify } from "../../Dependencies/Dependencias.ts";
 import { GenerarKey } from "./Criptokey.ts";
+import { Tecnico } from "../../Interfaces/Tecnico.interface.ts";
 
 const key = Deno.env.get("MY_SECRET_KEY");
 if (!key) {
   throw new Error("MY_SECRET_KEY no está configurada en el .env");
 }
-
 const server = Deno.env.get("SERVER");
 
-export const CrearToken = async (usuario: Tecnico) => {
+export const CrearToken = async (tecnico: Tecnico) => {
   const payload = {
     iss: server,
-    sub: String(usuario.Id_Usuario),
-    Rol_Usuario: usuario.Id_Rol,
+    sub: String(tecnico.id),
+    Rol_Tecnico: tecnico.rol,
     jti: crypto.randomUUID(),
-    exp: getNumericDate(60 * 60 * 8), // 8 horas
+    exp: getNumericDate(60 * 60 * 8),
   };
 
   const SecretKey = await GenerarKey(key);

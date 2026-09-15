@@ -1,5 +1,7 @@
 import "https://deno.land/std@0.224.0/dotenv/load.ts";
 import { Application, oakCors } from "./Dependencies/Dependencias.ts";
+import { TecnicoRouter } from "./Routes/TecnicoRouter.ts"
+
 import emailRoutes from "./Routes/emailRoutes.ts";
 import clienteRoutes from "./Routes/ClienteRouter.ts";
 
