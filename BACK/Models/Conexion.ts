@@ -6,3 +6,4 @@ export const conexion = await new Client().connect({
     db: "mantenimiento_de_equipos",
     password: "",
 })
+
