@@ -1,0 +1,11 @@
+### Envio de correo (Equipo recibido)
+POST http://localhost:8015/api/email/enviar
+Content-Type: application/json
+
+{
+  "destinatario": "castillograndasantiagoeduardo@gmail.com",
+  "nombre": "Santiago Castillo",
+  "asunto": "Equipo recibido",
+  "mensaje": "Tu equipo ha sido recibido y está en proceso de revisión. Te notificaremos cuando esté listo para su entrega.",
+  "numeroSolicitud": "REQ-00125"
+}
