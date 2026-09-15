@@ -1,6 +1,7 @@
 import "https://deno.land/std@0.224.0/dotenv/load.ts";
 import { Application, oakCors } from "./Dependencies/Dependencias.ts";
 import { TecnicoRouter } from "./Routes/TecnicoRouter.ts"
+import { LoginRouter } from "./Routes/LoginRouter.ts";
 
 import emailRoutes from "./Routes/emailRoutes.ts";
 import clienteRoutes from "./Routes/ClienteRouter.ts";
@@ -11,7 +12,7 @@ app.use(oakCors({
     origin: "*"
 }));
 
-const routes = [emailRoutes, clienteRoutes];
+const routes = [emailRoutes, clienteRoutes, TecnicoRouter, LoginRouter];
 
 routes.forEach(router => {
     app.use(router.routes());

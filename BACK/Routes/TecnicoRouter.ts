@@ -7,22 +7,16 @@ const TecnicoRouter = new Router();
 
 TecnicoRouter.post(
   "/tecnicos",
-  ValidarSesion,
-  ValidarRol(["superadmin"]),
   TecnicoController.crear,
 );
 
 TecnicoRouter.put(
   "/tecnicos/:id",
-  ValidarSesion,
-  ValidarRol(["superadmin"]),
   TecnicoController.editar,
 );
 
 TecnicoRouter.patch(
   "/tecnicos/:id/estado",
-  ValidarSesion,
-  ValidarRol(["superadmin"]),
   TecnicoController.cambiarEstado,
 );
 

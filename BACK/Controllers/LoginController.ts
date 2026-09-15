@@ -14,7 +14,7 @@ export const postLogin = async (ctx: RouterContext<"/login">) => {
 
     await cookies.set("token", token, {
       httpOnly: true,
-      secure: true,
+      secure: false,
       sameSite: "lax",
       maxAge: 60 * 60 * 8, // 8 horas, debe coincidir con el exp del JWT
       path: "/",
