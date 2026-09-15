@@ -9,3 +9,46 @@ Content-Type: application/json
   "mensaje": "Tu equipo ha sido recibido y está en proceso de revisión. Te notificaremos cuando esté listo para su entrega.",
   "numeroSolicitud": "REQ-00125"
 }
+### CRUD DE CLIENTES
+
+### Paso 1: Crear un cliente
+POST http://localhost:8015/api/clientes
+Content-Type: application/json
+
+{
+  "nombre_completo": "María Gómez",
+  "documento": "111111110",
+  "telefono": "3019876543",
+  "correo": "diegoalexandertrujillomedina@gmail.com",
+  "id_tecnico": 2
+}
+
+### Eliminar un cliente
+DELETE http://localhost:8015/api/clientes/2
+
+### Cambiar el estado de la orden de un equipo del cliente
+PUT http://localhost:8015/api/clientes/1/ordenes/1/estado
+Content-Type: application/json
+
+{
+  "estado": "EN DIAGNOSTICO"
+}
+
+### Editar un cliente (permitido: nombre_completo, telefono, id_tecnico)
+PUT http://localhost:8015/api/clientes/3
+Content-Type: application/json
+
+{
+  "telefono": "3142994265"
+}
+
+### Intentar editar correo/documento (debe rechazar con 400)
+PUT http://localhost:8015/api/clientes/1
+Content-Type: application/json
+
+{
+  "correo": "otro@email.com"
+}
+
+### Listar todos los clientes
+GET http://localhost:8015/api/clientes
